@@ -102,6 +102,6 @@ if(sentMessages <= 2) {
 }
 });
 
-window.addEventListener('resize', ()=>{
-    window.location.reload();
-});
+// window.addEventListener('resize', ()=>{
+//     window.location.reload();
+// });
