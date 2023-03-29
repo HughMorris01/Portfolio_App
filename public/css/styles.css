@@ -170,7 +170,7 @@ html {
     font-size: 5rem;
     font-weight: 900;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #ccc;
+    /* background-color: #ccc; */
     color: white;
     text-transform: uppercase;
     letter-spacing: .5rem;
@@ -233,7 +233,7 @@ html {
     transition: width .8s .3s ease-in-out;
 }
 
-.services {
+/* .services {
     width: 100%;
     height: 30%;
     justify-content: space-evenly;
@@ -270,7 +270,7 @@ html {
     color: #000;
     margin-bottom: 2rem;
     text-shadow: .2rem .2rem .5rem #555;
-}
+} */
 /* End of Section 2 */
 
 /* Section 3 */
@@ -443,6 +443,17 @@ html {
     opacity: .7;
 }
 
+.contact-form .validation-failed {
+    /* box-shadow: .1rem .1rem .1rem rgba(255, 255, 0, 0.7),
+    -.1rem -.1rem .1rem rgba(255, 255, 0, 0.7);
+ */
+ border: 1px solid rgba(255, 255, 0, 0.85) ;
+}
+
+.validation-color {
+    color: yellow;
+}
+
 .message-sent {
     font-size: 1.4rem;
     font-weight: 500;
@@ -464,7 +475,7 @@ html {
 }
 
 .social-media {
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
 }
 
 .social-media-link {
@@ -475,12 +486,19 @@ html {
     display: inline-block;
 }
 
+.contact-info {
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+    margin-bottom: .5rem;
+}
+
 .copyright {
     color: #777;
     font-size: 2rem;
     letter-spacing: .2rem;
     font-weight: 200;
     text-align: center;
+    margin-bottom: .5rem;
 }
 /* End of Section 5 */
 

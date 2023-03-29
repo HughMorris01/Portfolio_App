@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:wght@300;400;700&family=Jost:wght@100;200;300;400;500;600;700;800;900&family=Monoton&family=Nunito:wght@200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/portfolio-favicon.png">
-
   </head>
+
   <body>
 
     <div class="container">
@@ -32,6 +34,7 @@
         <a href="#home" class="navbar-link">Home</a>
         <a href="#about" class="navbar-link">About</a>
         <a href="#projects" class="navbar-link">Portfolio</a>
+        <!-- <a href="#resume" class="navbar-link">Resume</a> -->
         <a href="#contact" class="navbar-link">Contact</a>
       </nav>
       <!-- End of Navbar -->
@@ -39,8 +42,8 @@
       <!-- Section 2 -->
       <section class="section-2" id="about">
         <h1 class="section-2-heading">About Me</h1>
-        <p class="about-me">Hi, I'm Greg and I'm a web developer from Western NY. I attained a B.S. in Software Development from Western Governor's University in 2023 and now I'm now working tirelessly to grow and refine my skills as a developer. 
-          You can view some of the websites that I've built in the following &lt;section&gt;, as well as rough self-evaluation of my current web developer skillset below. 
+        <p class="about-me">Hi, I'm Greg and I'm a web developer from Western NY. I attained a B.S. in Software Development from Western Governor's University in 2023 and now I'm now striving daily to grow and refine my skills as a developer. 
+          You can view some of the websites that I've built in the following section, as well as rough self-evaluation of my current skillset below. 
           A more complete collection of projects I've been working on can be found at my <a href="https://github.com/HughMorris01">GitHub page.</a>  </p>
         <div class="progress-bars-wrapper">
           <div class="progress-bar">
@@ -78,7 +81,7 @@
             <div class="progress-percent"></div>
           </div>
         </div>
-        <div class="services center">
+        <!-- <div class="services center">
           <div class="service">
             <i class="fas fa-lightbulb"></i>
             <h2 class="service-heading">Creative</h2>
@@ -95,7 +98,7 @@
             <i class="fa-solid fa-person-digging"></i>
             <h2 class="service-heading">Diligent</h2>
           </div>
-        </div>
+        </div> -->
       </section>
       <!-- End of Section 2 -->
 
@@ -179,17 +182,24 @@
       </section>
       <!-- End of Section 3 -->
 
+      <!-- Resume Section -->
+      <!-- <section class="resume-section" id="resume">
+      </section> -->
+      <!-- End of Resume Section -->
 
-      <!-- TODO CREATE CLASS FOR GRAYING OUT FORM AFTER 3 SUBMISSIONS -->
       <!-- Section 4 -->
       <section class="section-4" id="contact">
         <h1 class="section-4-heading">Contact Me</h1>
         <form class="contact-form center">
-          <input type="text" id="name" placeholder="Name">
-          <input type="email" id="email" placeholder="Email">
-          <input type="text" id="subject" placeholder="Subject">
-          <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-          <input id="submit-btn" type="submit" name="submit" value="send Message" class="contact-form-btn">
+          <input type="text" id="name" class="form-input" placeholder="Name">
+          <p id="name-validation" class="validation-color"></p>
+          <input type="email" id="email" class="form-input" placeholder="Email">
+          <p id="email-validation" class="validation-color"></p>
+          <input type="text" id="subject" class="form-input" placeholder="Subject">
+          <p id="subject-validation" class="validation-color"></p>
+          <textarea name="message" id="message" class="form-input"cols="30" rows="10" placeholder="Message"></textarea>
+          <p id="message-validation" class="validation-color"></p>
+          <input id="submit-btn" type="submit" name="submit" value="send message" class="contact-form-btn">
           <div class="success"></div>
         </form>
       </section>
@@ -205,6 +215,7 @@
             <i class="fab fa-linkedin"></i>
           </a>
         </div>
+        <span class="contact-info">GFarrell2@Live.com | (585) 439-8235</span>
         <p class="copyright">
           Gregory Farrell &copy; 2023 - All Rights Reserved
         </p>

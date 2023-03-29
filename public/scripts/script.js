@@ -1,17 +1,21 @@
+
+const progress = document.querySelector('.progress-bars-wrapper');
+const percentBars = document.querySelectorAll('.progress-percent');
+const percentages = [80, 95, 90, 75, 75, 35, 45, 40];
+
+
+// Navbar
 const navbar = document.querySelector('.navbar');
-const navbarOffsetTop = navbar.offsetTop;
 const sections = document.querySelectorAll('section');
 const navbarLinks = document.querySelectorAll('.navbar-link');
-const navbarLinkHovers = document.querySelectorAll('navbar-link:hover');
-const progress = document.querySelector('.progress-bars-wrapper');
+const navbarOffsetTop = navbar.offsetTop;
 const section2Offset = document.querySelector('.section-2').offsetTop;
 const section3Offset = document.querySelector('.section-3').offsetTop;
-const percentBars = document.querySelectorAll('.progress-percent');
-const percentages = [80, 95, 89, 74, 75, 35, 45, 40];
 
 window.addEventListener('scroll', ()=>{
     mainFn()
 });
+
 
 const mainFn = ()=>{
     if(window.pageYOffset >= navbarOffsetTop){
@@ -20,8 +24,7 @@ const mainFn = ()=>{
         navbar.classList.remove('sticky')
     }
 
-    const sections = document.querySelectorAll('section');
-    const navbarLinks = document.querySelectorAll('.navbar-link');
+    
     sections.forEach((section, i) => {
 
         if(window.pageYOffset >= (section.offsetTop-200)) {
@@ -33,7 +36,7 @@ const mainFn = ()=>{
         }
     });
 
-    if(window.pageYOffset >= section2Offset && window.pageYOffset < section3Offset - 300) {
+    if(window.pageYOffset >= section2Offset - 100 && window.pageYOffset < section3Offset - 100) {
         percentBars.forEach((percentBar, i) =>{
             percentBar.style.width = `${percentages[i]}%`;
             percentBar.previousElementSibling.firstElementChild.textContent = percentages[i];
@@ -44,23 +47,27 @@ const mainFn = ()=>{
         });
     }
 }
+// End of Navbar
 
+// Contact Form
 const contactForm = document.querySelector('.contact-form');
-let senderName = document.getElementById('name');
-let senderEmail = document.getElementById('email');
-let senderSubject = document.getElementById('subject');
-let senderMessage = document.getElementById('message');
+const senderName = document.getElementById('name');
+const senderEmail = document.getElementById('email');
+const senderSubject = document.getElementById('subject');
+const senderMessage = document.getElementById('message');
+const inputs = document.querySelectorAll(".form-input");
+const submitButton = document.getElementById('submit-btn')
 let sentMessages = 0;
+let errorMessages = 0;
+
 
 contactForm.addEventListener('submit', (e)=>{
     e.preventDefault();
 
-    // if(senderName.value === ""){
-    //     alert('bugger off')
-    //     return;
-    // TODO - IMPLEMENT FORM VALIDATION
-    // }
-if(sentMessages <= 2) {
+    if(validate() === false){
+        return;
+    }
+
     let formData = {
         name: senderName.value,
         email: senderEmail.value,
@@ -78,7 +85,12 @@ if(sentMessages <= 2) {
             }else if (sentMessages === 1){
                 document.querySelector(".success").innerHTML = "<h2 class='message-sent'>Thank you. I've received your message, again. &#128513;</h1>"; 
             } else {
-                document.querySelector(".success").innerHTML = "<h2 class='message-sent'>Three is the limit, please try again later &#128526;</h1>"; 
+                document.querySelector(".success").innerHTML = "<h2 class='message-sent'>Three is the limit, please try again later &#128526;</h1>";
+                senderName.remove()
+                senderEmail.remove();
+                senderSubject.remove();
+                senderMessage.remove();
+                submitButton.remove();
             }
             senderName.value = '';
             senderEmail.value = '';
@@ -87,8 +99,9 @@ if(sentMessages <= 2) {
 
             sentMessages++;
         } else {
-            if(sentMessages === 0){
+            if(errorMessages === 0){
                 document.querySelector(".success").innerHTML = "<h2 class='message-sent'>Uh, oh. Something went wrong.......</h1>";
+                errorMessages++;
             }else{
                 document.querySelector(".success").innerHTML = "<h2 class='message-sent'>There must be an issue, please try again later.</h1>"; 
             }
@@ -99,8 +112,38 @@ if(sentMessages <= 2) {
         }
     }
     xhr.send(JSON.stringify(formData));
-}
 });
+
+const validate = ()=> {
+    if(senderName.value === ""){
+        document.getElementById('name-validation').innerHTML = "Please enter your name before submitting";
+        senderName.classList.add('validation-failed');
+        return false;
+    }
+    if(senderEmail.value === ""){
+        document.getElementById('email-validation').innerHTML = "Please enter your email before submitting"
+        senderEmail.classList.add('validation-failed');
+        return false;
+    }
+    if(senderSubject.value === ""){
+        document.getElementById('subject-validation').innerHTML = "Please enter a subject before submitting"
+        senderSubject.classList.add('validation-failed');
+        return false;
+    }
+    if(senderMessage.value === ""){
+        document.getElementById('message-validation').innerHTML = "Please enter a message before submitting"
+        senderMessage.classList.add('validation-failed');
+        return false;
+    }
+}
+
+inputs.forEach((input) =>{
+    input.addEventListener('input', (e)=>{
+        input.classList.remove('validation-failed');
+        input.nextElementSibling.innerHTML = "";
+    })
+})
+// End of Contact Form
 
 // window.addEventListener('resize', ()=>{
 //     window.location.reload();
