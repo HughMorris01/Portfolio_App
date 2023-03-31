@@ -1,0 +1,30 @@
+@keyframes heartbeat {
+        0% {
+            transform: scale(1);
+            border-radius: 0;
+        }
+        10% {
+            transform: scale(1.15);
+            border-radius: 8px;
+        }
+        20% {
+            transform: scale(1);
+            border-radius: 0;
+        }
+        30% {
+            transform: scale(1.05);
+            border-radius: 3px;
+        }
+        40% {
+            transform: scale(1);
+            border-radius: 0;
+        }
+        100% {
+            transform: scale(1);
+            border-radius: 0;
+        }
+    }
+
+    .section-1-btn {
+        animation: heartbeat 2s infinite running;
+    }

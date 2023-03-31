@@ -60,7 +60,6 @@ const submitButton = document.getElementById('submit-btn')
 let sentMessages = 0;
 let errorMessages = 0;
 
-
 contactForm.addEventListener('submit', (e)=>{
     e.preventDefault();
 
@@ -86,11 +85,12 @@ contactForm.addEventListener('submit', (e)=>{
                 document.querySelector(".success").innerHTML = "<h2 class='message-sent'>Thank you. I've received your message, again. &#128513;</h1>"; 
             } else {
                 document.querySelector(".success").innerHTML = "<h2 class='message-sent'>Three is the limit, please try again later &#128526;</h1>";
-                senderName.remove()
-                senderEmail.remove();
-                senderSubject.remove();
-                senderMessage.remove();
-                submitButton.remove();
+                senderName.disabled = true;
+                senderEmail.disabled = true;
+                senderSubject.disabled = true;
+                senderMessage.disabled = true;
+                submitButton.disabled = true;
+                submitButton.classList.add('disable-btn');
             }
             senderName.value = '';
             senderEmail.value = '';
