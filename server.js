@@ -35,7 +35,24 @@ app.post('/', (req, res) => {
         text: req.body.message
     }
 
+    const confirmationOptions = {
+        from: process.env.GOOGLE_USERNAME,
+        to: req.body.email,
+        subject: `Message Confirmation`,
+        text: "I received the message that you sent through my website. Thank you, I'll be in Touch."
+    }
+
     transporter.sendMail(mailOptions, (err, info)=>{
+        if(err){
+            console.log(err);
+            res.send('error');
+        } else {
+            res.send('success');
+            console.log('successfully sent email');
+        }
+    })
+
+    transporter.sendMail(confirmationOptions, (err, info)=>{
         if(err){
             console.log(err);
             res.send('error');
