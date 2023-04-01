@@ -70,7 +70,7 @@ html {
     border: .3rem solid var(--grey-color);
     border-radius: 50%;
     box-shadow: .5rem .5rem .5rem #222, 
-    1rem 1rem 1rem #555;
+    .8rem .8rem .8rem #555;
     margin-top: 5rem;
     opacity: 1;
 }
@@ -177,8 +177,10 @@ html {
     text-transform: uppercase;
     letter-spacing: .5rem;
     margin-bottom: 7rem;
+    border: 1px #aaa solid;
     text-shadow: .1rem .1rem .3rem #555;
-    box-shadow: .5rem .5rem .5rem #555;
+    box-shadow: .3rem .3rem .3rem #555,
+    -.1rem -.1rem .1rem #888;
     border-top: .1rem solid #aaa;
     border-left: .1rem solid #aaa;
     
@@ -295,6 +297,7 @@ html {
     text-transform: uppercase;
     letter-spacing: .5rem;
     margin-bottom: 10rem;
+    border: 1px var(--navy-color) solid;
     text-shadow: .1rem .1rem .5rem #bbb;
     box-shadow: .1rem .1rem .3rem var(--navy-color), 
     -.1rem -.1rem .3rem var(--navy-color);
@@ -404,9 +407,10 @@ html {
     text-transform: uppercase;
     letter-spacing: .5rem;
     margin-bottom: 3rem;
-    text-shadow: .1rem .1rem .3rem whitesmoke;
-    box-shadow: .1rem .1rem .3rem #bbb, 
-    -.1rem -.1rem .3rem #bbb;
+    border: 1px whitesmoke solid;
+    text-shadow: .1rem .1rem .1rem whitesmoke;
+    box-shadow: .2rem .2rem .3rem #bbb, 
+    -.2rem -.2rem .3rem #bbb;
 }
 
 .contact-form {
@@ -427,7 +431,7 @@ html {
     width: 100%;
     padding: .5rem;
     margin: .5rem;
-    background-color: rgba(255, 255, 255, .4);
+    background-color: rgba(255, 255, 255, .6);
     border: .1rem solid white;
     font-size: 1.5rem;
     color: #111;
@@ -530,7 +534,7 @@ html {
     letter-spacing: .2rem;
     font-weight: 200;
     text-align: center;
-    margin-bottom: .5rem;
+    margin-top: 1rem;
 }
 /* End of Section 5 */
 

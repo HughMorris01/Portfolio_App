@@ -19,27 +19,27 @@ app.post('/', (req, res) => {
     console.log(req.body);
 
     const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
+        host: "smtp.zoho.com",
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-            user: process.env.GOOGLE_USERNAME,
-            pass: process.env.GOOGLE_PASS,
+            user: process.env.ZOHO_USERNAME,
+            pass: process.env.ZOHO_PASS,
         }
     })
   
     const mailOptions = {
-        from: req.body.email,
+        from: process.env.ZOHO_GREG,
         to: process.env.MY_EMAIL,
         subject: `Message from: ${req.body.name} <${req.body.email}> : ${req.body.subject}`,
         text: req.body.message
     }
 
     const confirmationOptions = {
-        from: process.env.GOOGLE_USERNAME,
+        from: process.env.ZOHO_NO_REPLY,
         to: req.body.email,
-        subject: `Message Confirmation`,
-        text: "I received the message that you sent through my website. Thank you, I'll be in Touch."
+        subject: `Message Receipt Confirmation`,
+        text: "I received the message that you sent through my website. Thank you, I'll be in touch."
     }
 
     transporter.sendMail(mailOptions, (err, info)=>{
