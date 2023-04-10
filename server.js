@@ -42,25 +42,27 @@ app.post('/', (req, res) => {
     text: "I received the message that you sent through my website. Thank you, I'll be in touch.",
   };
 
-  transporter.sendMail(mailOptions, (err, info) => {
-    if (err) {
-      console.log(err);
-      res.send('error');
-    } else {
-      res.send('success');
-      console.log('successfully sent email');
-    }
-  });
+  if (req.body.name !== undefined) {
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.log(err);
+        res.send('error');
+      } else {
+        res.send('success');
+        console.log('successfully sent email');
+      }
+    });
 
-  transporter.sendMail(confirmationOptions, (err, info) => {
-    if (err) {
-      console.log(err);
-      res.send('error');
-    } else {
-      res.send('success');
-      console.log('successfully sent email');
-    }
-  });
+    transporter.sendMail(confirmationOptions, (err, info) => {
+      if (err) {
+        console.log(err);
+        res.send('error');
+      } else {
+        res.send('success');
+        console.log('successfully sent email');
+      }
+    });
+  }
 });
 
 app.listen(port, () => {
