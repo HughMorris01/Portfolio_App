@@ -537,6 +537,7 @@ html {
 }
 /* End of Section 5 */
 
+/*Media Queries*/
 @media screen and (max-width: 1400px) {
   .section-1 {
     padding-top: 15%;
@@ -665,3 +666,4 @@ html {
     flex-direction: column;
   }
 }
+/* End of Media Queries*/
